@@ -33,9 +33,9 @@ void main() {
     });
 
     await loginAsAdmin(tester);
-    expect(find.text('Welcome, Student!'), findsOneWidget);
+    expect(find.text('Welcome, admin!'), findsOneWidget);
 
-    selectTab(tester, 3);
+    selectTab(tester, 2);
     await tester.pumpAndSettle();
 
     expect(find.text('JohnDoe'), findsOneWidget);
@@ -53,7 +53,7 @@ void main() {
     });
 
     await loginAsAdmin(tester);
-    selectTab(tester, 3);
+    selectTab(tester, 2);
     await tester.pumpAndSettle();
 
     await tester.tap(find.byType(FloatingActionButton));
@@ -74,7 +74,7 @@ void main() {
     });
 
     await loginAsAdmin(tester);
-    selectTab(tester, 3);
+    selectTab(tester, 2);
     await tester.pumpAndSettle();
 
     await tester.tap(find.byType(FloatingActionButton));
@@ -98,7 +98,7 @@ void main() {
     });
 
     await loginAsAdmin(tester);
-    selectTab(tester, 3);
+    selectTab(tester, 2);
     await tester.pumpAndSettle();
 
     // 5. Submit valid post
@@ -168,9 +168,9 @@ void main() {
     // 10. Switch tabs and return
     selectTab(tester, 0);
     await tester.pumpAndSettle();
-    expect(find.text('Welcome, Student!'), findsOneWidget);
+    expect(find.text('Welcome, admin!'), findsOneWidget);
 
-    selectTab(tester, 3);
+    selectTab(tester, 2);
     await tester.pumpAndSettle();
     expect(find.text('Second post here'), findsOneWidget);
     expect(find.text('Awesome post!'), findsOneWidget);
@@ -186,7 +186,7 @@ void main() {
     });
 
     await loginAsAdmin(tester);
-    selectTab(tester, 2);
+    selectTab(tester, 3);
     await tester.pumpAndSettle();
 
     // Logout
@@ -217,8 +217,8 @@ void main() {
     await tester.tap(find.widgetWithText(ElevatedButton, 'Login'));
     await tester.pumpAndSettle();
 
-    // Go to Social Media
-    selectTab(tester, 3);
+    // Go to Social Media (index 2)
+    selectTab(tester, 2);
     await tester.pumpAndSettle();
 
     // Create post

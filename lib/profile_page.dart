@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-
 import 'demo_auth.dart';
 import 'login_screen.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  final String username;
 
-  void _logout(BuildContext context) {
+  const ProfilePage({
+    super.key,
+    required this.username,
+  });
+
+  void logout(BuildContext context) {
     DemoAuth.logout();
 
     Navigator.of(context).pushAndRemoveUntil(
@@ -21,14 +25,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Profile'),
-        actions: [
-          IconButton(
-            tooltip: 'Logout',
-            icon: const Icon(Icons.logout),
-            onPressed: () => _logout(context),
-          ),
-        ],
+        title: const Text('Student Profile'),
       ),
       body: ListView(
         padding: const EdgeInsets.all(24),
@@ -36,18 +33,33 @@ class ProfilePage extends StatelessWidget {
           const CircleAvatar(
             radius: 50,
             backgroundColor: Colors.indigo,
-            child: Icon(Icons.person, size: 60, color: Colors.white),
+            child: Icon(
+              Icons.person,
+              size: 60,
+              color: Colors.white,
+            ),
           ),
           const SizedBox(height: 16),
+
           const Text(
             'BRETT JOSH B. BINASBAS',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 8),
+
+          Text(
+            'Logged in as: $username',
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 24),
-          Card(
+
+          const Card(
             child: Column(
-              children: const [
+              children: [
                 ListTile(
                   leading: Icon(Icons.badge),
                   title: Text('Student ID'),
@@ -67,15 +79,11 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 24),
+
           ElevatedButton.icon(
-            onPressed: () => _logout(context),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red.shade600,
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(vertical: 12),
-            ),
+            onPressed: () => logout(context),
             icon: const Icon(Icons.logout),
-            label: const Text('Logout', style: TextStyle(fontSize: 16)),
+            label: const Text('Logout'),
           ),
         ],
       ),
