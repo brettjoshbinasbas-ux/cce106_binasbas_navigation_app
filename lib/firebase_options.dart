@@ -53,11 +53,11 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBhltqm3UVXY6QhPQQF8CWODPo2xRJ73sY',
-    appId: '1:470847022420:web:2ae9fb5cbc7cae2880d4c1',
-    messagingSenderId: '470847022420',
-    projectId: 'boothcraft-dev-bjb-2026',
-    authDomain: 'boothcraft-dev-bjb-2026.firebaseapp.com',
-    storageBucket: 'boothcraft-dev-bjb-2026.firebasestorage.app',
+    apiKey: 'AIzaSyCgfIgj0PGn5ZmbjIGsnzavLxj_VVrW8lM',
+    appId: '1:109265380631:web:ed90ca7b4be3f25de70352',
+    messagingSenderId: '109265380631',
+    projectId: 'binasbas-student-app-2026',
+    authDomain: 'binasbas-student-app-2026.firebaseapp.com',
+    storageBucket: 'binasbas-student-app-2026.firebasestorage.app',
   );
 }
